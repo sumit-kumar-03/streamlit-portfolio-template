@@ -159,3 +159,6 @@ salt*
 .dockerignore
 docker-compose.yml
 Dockerfile
+
+# Local contact-form submissions never go into the image
+submissions/*.txt

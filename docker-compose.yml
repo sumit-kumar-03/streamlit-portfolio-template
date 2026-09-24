@@ -1,22 +1,13 @@
-
 services:
   portfolio:
     image: portfolio:latest
     build: .
+    # Mount the project so edits show up without rebuilding the image.
+    # Streamlit reloads on save (runOnSave in .streamlit/config.toml).
     volumes:
       - ./:/usr/src/app/
+    ports:
+      - "8081:8501"
     restart: unless-stopped
     dns:
       - 8.8.8.8
-    ports:
-      - "8081:8501"
-    entrypoint: 
-      - /bin/bash
-      - -c
-      - |
-        chmod +x /usr/src/app/scripts/entrypoint.sh || true;
-        /usr/src/app/scripts/entrypoint.sh;
-        while inotifywait -r -e modify,create,delete,move /usr/src/app; do
-          echo 'Change detected, reloading...';
-          /usr/src/app/scripts/entrypoint.sh;
-        done

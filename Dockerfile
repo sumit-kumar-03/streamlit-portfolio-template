@@ -1,26 +1,17 @@
-##********************** MAIN BUILD **********************##
 FROM python:3.12-slim
 
-
-# Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
 
-
-# Set the working directory
 WORKDIR /usr/src/app
 
+# Dependencies first, so code changes don't invalidate this layer
+COPY requirements.txt ./requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy requirements
-COPY ./requirements.txt ./requirements.txt
+# App code (docker-compose mounts over this for live editing)
+COPY . .
 
+EXPOSE 8501
 
-# Install dependencies and bash/inotify-tools
-RUN apt-get update && \
-    apt-get install -y inotify-tools && \
-    pip install -r requirements.txt 
-
-
-
-# Default entrypoint
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+ENTRYPOINT ["/usr/src/app/scripts/entrypoint.sh"]

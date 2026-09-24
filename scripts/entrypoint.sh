@@ -1,2 +1,3 @@
-# Start Portfolio App
-streamlit run  /usr/src/app/app.py
+#!/bin/bash
+# Start the portfolio app
+exec streamlit run /usr/src/app/app.py
