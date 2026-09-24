@@ -10,9 +10,9 @@ A modern, customizable portfolio/resume website template built with Streamlit, f
 
 - 🎨 **Modern Design**: Professional dark theme with gradient accents
 - 📱 **Responsive Layout**: Optimized for all screen sizes
-- 🔄 **Interactive Components**: Animated charts, timelines, and visualizations
+- 🔄 **Interactive Components**: Lottie animations, an experience timeline, skill badges, and a contact form
 - 🚀 **Fast Performance**: Optimized loading and rendering
-- 🐳 **Docker Ready**: Easy deployment with Docker and Docker Compose
+- 🐳 **Docker Ready**: Self-contained image for deployment, plus a Compose setup for live editing
 - 📊 **Data-Driven**: Separated data from presentation logic
 - 🎯 **Section Navigation**: Sidebar menu for easy browsing
 
@@ -66,35 +66,25 @@ streamlit-portfolio-template/
 
 ### Docker Development (Recommended)
 
-1. **Start development server with hot reload**
-   ```bash
-   docker-compose up portfolio-dev
-   ```
-   - Access at: `http://localhost:8501`
-   - Auto-reloads on code changes
-   - Volume-mounted for live editing
+```bash
+docker compose up --build
+```
 
-2. **Build and run**
-   ```bash
-   docker-compose build
-   docker-compose up
-   ```
+- Access at: `http://localhost:8081`
+- The project folder is mounted into the container, so edits show up without rebuilding the image
+- Streamlit reloads the app on save (`runOnSave = true` in `.streamlit/config.toml`)
 
 ### Docker Production
 
-1. **Start production server**
-   ```bash
-   docker-compose --profile production up portfolio-prod
-   ```
-   - Access at: `http://localhost:8081`
-   - Optimized for performance
-   - No hot reload
+The image is self-contained (code included), so you can run it anywhere without Compose:
 
-2. **Or run standalone**
-   ```bash
-   docker build -t portfolio:prod .
-   docker run -p 8501:8501 portfolio:prod
-   ```
+```bash
+docker build -t portfolio:latest .
+docker run -p 8501:8501 portfolio:latest
+```
+
+- Access at: `http://localhost:8501`
+- Rebuild the image after changing code or content
 
 ## 🎨 Customization
 
@@ -135,41 +125,37 @@ Update the respective sections in `core/data.py`:
 ## 📦 Docker Commands
 
 ```bash
-# Development mode (hot reload)
-docker-compose up portfolio-dev
+# Start with live editing (http://localhost:8081)
+docker compose up --build
 
-# Production mode
-docker-compose --profile production up portfolio-prod
-
-# Build only
-docker-compose build
-
-# Stop all services
-docker-compose down
+# Run in the background / stop
+docker compose up -d
+docker compose down
 
 # View logs
-docker-compose logs -f portfolio-dev
+docker compose logs -f portfolio
 
-# Rebuild and start
-docker-compose up --build
+# Standalone production image (http://localhost:8501)
+docker build -t portfolio:latest .
+docker run -p 8501:8501 portfolio:latest
 ```
 
 ## 🛠️ Technology Stack
 
 - **Frontend Framework**: Streamlit 1.51.0
 - **Programming Language**: Python 3.12
-- **Visualization**: Plotly 5.17.0
+- **Charts**: Plotly 5.17.0 (installed and ready to use; not wired into any section yet)
 - **Animations**: Lottie Files (streamlit-lottie)
 - **Navigation**: streamlit-option-menu
 - **Containerization**: Docker & Docker Compose
 
 ## 📝 Development Workflow
 
-1. **Make changes** to any `.py` file in the project
-2. **Changes auto-reload** if using `portfolio-dev` service
-3. **Test locally** at `http://localhost:8501`
-4. **Commit** when satisfied
-5. **Deploy** using production Docker configuration
+1. **Start** the app with `docker compose up --build` (or `streamlit run app.py`)
+2. **Make changes** to any `.py` file or to `core/data.py`
+3. **Save**: Streamlit reloads automatically
+4. **Test** at `http://localhost:8081` (Compose) or `http://localhost:8501` (local)
+5. **Deploy** the standalone image built from the `Dockerfile`
 
 ## 🌐 Deployment
 
@@ -184,12 +170,14 @@ The portfolio can be deployed to various platforms:
 
 **Heroku:**
 ```bash
+# Heroku needs a Procfile that binds Streamlit to its $PORT
+echo 'web: streamlit run app.py --server.port $PORT --server.address 0.0.0.0' > Procfile
 heroku create your-portfolio
 git push heroku main
 ```
 
 **AWS/GCP/Azure:**
-- Use the production Docker image
+- Use the standalone Docker image (`docker build -t portfolio:latest .`)
 - Deploy to container services (ECS, Cloud Run, etc.)
 
 ## 📄 License
