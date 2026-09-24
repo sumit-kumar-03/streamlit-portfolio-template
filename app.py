@@ -58,8 +58,8 @@ with st.sidebar:
     
     selected = option_menu(
         menu_title="Navigation",
-        options=["Home", "Experience", "Projects", "Skills", "Education", "Certifications", "Contact"],
-        icons=["house", "briefcase", "rocket", "code-slash", "mortarboard", "award", "envelope"],
+        options=["Home", "About", "Experience", "Projects", "Skills", "Education", "Certifications", "Contact"],
+        icons=["house", "person", "briefcase", "rocket", "code-slash", "mortarboard", "award", "envelope"],
         menu_icon="cast",
         default_index=0,
         styles={
