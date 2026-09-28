@@ -29,7 +29,6 @@ from core.data import (
 # Page configuration (must be first Streamlit command)
 st.set_page_config(
     page_title=f"{PERSONAL_INFO['name']} - Portfolio",
-    page_icon="👤",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -99,7 +98,7 @@ if selected == "Home":
     st.markdown("<br>", unsafe_allow_html=True)
     
     # # Featured Projects Preview
-    # st.markdown("## 🚀 Featured Projects")
+    # st.markdown("## Featured Projects")
     # cols = st.columns(2)
     # featured_projects = PROJECTS[:2]
     # for idx, project in enumerate(featured_projects):
@@ -111,7 +110,7 @@ if selected == "Home":
     #     st.rerun()
 
 elif selected == "About":
-    st.markdown("# 👨‍💻 About Me")
+    st.markdown("# About Me")
     st.markdown("---")
     
     col1, col2 = st.columns([2, 1])
@@ -141,14 +140,14 @@ elif selected == "About":
     with col2:
         st_lottie(Graphic.coding_boy.value, height=400, key="about-animation")
         
-        st.markdown("### 📍 Location")
+        st.markdown("### Location")
         st.info(PERSONAL_INFO['location'])
         
-        st.markdown("### 💼 Current Role")
+        st.markdown("### Current Role")
         st.info(f"{PERSONAL_INFO['title']} at {PERSONAL_INFO['company']}")
 
 elif selected == "Experience":
-    st.markdown("# 💼 Work Experience")
+    st.markdown("# Work Experience")
     st.markdown("---")
     
     col1, col2 = st.columns([2, 1])
@@ -160,7 +159,7 @@ elif selected == "Experience":
         # Quick Stats
         st.markdown(f"""
         <div class="custom-card" style="text-align: center;">
-            <h3>⚡ Quick Stats</h3>
+            <h3>Quick Stats</h3>
             <h2 style="color: #6366f1;">{PERSONAL_INFO['years_of_experience']}</h2>
             <p>Years of Experience</p>
         </div>
@@ -172,7 +171,7 @@ elif selected == "Experience":
         
         st.markdown("""
         <div class="custom-card">
-            <h3>💡 Expertise Areas</h3>
+            <h3>Expertise Areas</h3>
             <ul style="line-height: 2; color: #d1d5db;">
                 <li>Backend Engineering</li>
                 <li>Distributed Systems</li>
@@ -185,7 +184,7 @@ elif selected == "Experience":
         """, unsafe_allow_html=True)
 
 elif selected == "Projects":
-    st.markdown("# 🚀 Projects")
+    st.markdown("# Projects")
     st.markdown("---")
     
     st.markdown("""
@@ -199,7 +198,7 @@ elif selected == "Projects":
         render_project_card(project)
 
 elif selected == "Skills":
-    st.markdown("# 💻 Technical Skills")
+    st.markdown("# Technical Skills")
     st.markdown("---")
     
     # Centered animation at the top
@@ -213,7 +212,7 @@ elif selected == "Skills":
     render_skills_section(SKILLS)
 
 elif selected == "Education":
-    st.markdown("# 🎓 Education")
+    st.markdown("# Education")
     st.markdown("---")
     
     col1, col2 = st.columns([2, 1])
@@ -226,7 +225,7 @@ elif selected == "Education":
     with col2:
         st.markdown("""
         <div class="custom-card">
-            <h3>🎯 Focus Areas</h3>
+            <h3>Focus Areas</h3>
             <ul style="line-height: 2; color: #d1d5db;">
                 <li>Backend Engineering</li>
                 <li>Distributed Systems</li>
@@ -239,7 +238,7 @@ elif selected == "Education":
         """, unsafe_allow_html=True)
 
 elif selected == "Certifications":
-    st.markdown("# 🏆 Certifications")
+    st.markdown("# Certifications")
     st.markdown("---")
     
     col1, col2 = st.columns([2, 1])
@@ -254,7 +253,7 @@ elif selected == "Certifications":
         
         st.markdown("""
         <div class="custom-card">
-            <h3>📚 Continuous Learning</h3>
+            <h3>Continuous Learning</h3>
             <p style="color: #d1d5db; line-height: 1.8;">
                 I believe in continuous learning and regularly update my skills 
                 through online courses, certifications, and hands-on projects.
@@ -263,7 +262,7 @@ elif selected == "Certifications":
         """, unsafe_allow_html=True)
 
 elif selected == "Contact":
-    st.markdown("# 📬 Contact Me")
+    st.markdown("# Contact Me")
     st.markdown("---")
     
     col1, col2 = st.columns([1.5, 1])
@@ -275,7 +274,7 @@ elif selected == "Contact":
         
         st.markdown("""
         <div class="custom-card">
-            <h3>📧 Direct Email</h3>
+            <h3>Direct Email</h3>
             <p style="color: #6366f1; font-size: 1.1rem;">{}</p>
             <br>
             <br>

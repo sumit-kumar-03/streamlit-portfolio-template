@@ -14,7 +14,7 @@ def render_hero_section(lottie_animation):
     col1, col2 = st.columns([1.2, 1])
     
     with col1:
-        st.markdown(f'<h1 class="hero-title">👋 Hello, I\'m<br>{PERSONAL_INFO["name"]}</h1>', unsafe_allow_html=True)
+        st.markdown(f'<h1 class="hero-title">Hello, I\'m<br>{PERSONAL_INFO["name"]}</h1>', unsafe_allow_html=True)
         st.markdown(f'<p class="hero-subtitle">{PERSONAL_INFO["title"]} at <a href="{PERSONAL_INFO["company_url"]}" target="_blank">{PERSONAL_INFO["company"]}</a></p>', unsafe_allow_html=True)
         st.markdown(f'<p style="font-size: 1.1rem; font-weight: 500; background: linear-gradient(90deg, #6366f1 0%, #a855f7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">{PERSONAL_INFO["tagline"]}</p>', unsafe_allow_html=True)
         
@@ -22,7 +22,7 @@ def render_hero_section(lottie_animation):
         col_btn1, col_btn2 = st.columns(2)
         
         # with col_btn1:
-        #     if st.button("📧 Contact Me", width="stretch"):
+        #     if st.button("Contact Me", width="stretch"):
         #         st.session_state.selected = "Contact"
         #         st.rerun()
         
@@ -30,14 +30,14 @@ def render_hero_section(lottie_animation):
         #     try:
         #         with open("./cv/resume.pdf", "rb") as pdf_file:
         #             st.download_button(
-        #                 label="📄 Resume",
+        #                 label="Resume",
         #                 data=pdf_file,
         #                 file_name="resume.pdf",
         #                 mime="application/pdf",
         #                 width="stretch"
         #             )
         #     except FileNotFoundError:
-        #         st.button("📄 Resume", width="stretch", disabled=True)
+        #         st.button("Resume", width="stretch", disabled=True)
     
     with col2:
         if lottie_animation:
@@ -228,7 +228,7 @@ def render_contact_form():
     """Render a contact form with local file storage."""
     st.markdown("""
     <div class="custom-card">
-        <h3>📧 Get In Touch</h3>
+        <h3>Get In Touch</h3>
         <p style="color: #d1d5db;">Feel free to reach out for collaborations, opportunities, or just a chat!</p>
         <br>
     </div>
@@ -272,7 +272,7 @@ def render_contact_form():
 
 def render_social_links():
     """Render social media links."""
-    st.markdown("### 🌐 Connect With Me")
+    st.markdown("### Connect With Me")
     
     cols = st.columns(4)
     
@@ -304,7 +304,7 @@ def render_social_links():
         if SOCIAL_LINKS.get('twitter'):
             st.markdown(f"""
             <a href="{SOCIAL_LINKS['twitter']}" target="_blank" class="social-link">
-                🐦 Twitter
+                Twitter
             </a>
             """, unsafe_allow_html=True)
 
@@ -314,7 +314,7 @@ def render_footer():
     # st.markdown("---")
     st.markdown(f"""
     <div class="footer">
-        <p>© 2024 {PERSONAL_INFO['name']}. Built with ❤️ using Streamlit.</p>
+        <p>© 2024 {PERSONAL_INFO['name']}. Built with Streamlit.</p>
         <p>
             <a href="{SOCIAL_LINKS.get('github', '#')}">GitHub</a> • 
             <a href="{SOCIAL_LINKS.get('linkedin', '#')}">LinkedIn</a> • 

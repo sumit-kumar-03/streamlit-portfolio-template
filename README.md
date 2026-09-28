@@ -1,4 +1,4 @@
-# 💼 Streamlit Portfolio Template
+# Streamlit Portfolio Template
 
 A modern, customizable portfolio/resume website template built with Streamlit, featuring interactive components, responsive design, and seamless Docker deployment.
 
@@ -6,17 +6,17 @@ A modern, customizable portfolio/resume website template built with Streamlit, f
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.51.0-red.svg)
 ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED.svg)
 
-## ✨ Features
+## Features
 
-- 🎨 **Modern Design**: Professional dark theme with gradient accents
-- 📱 **Responsive Layout**: Optimized for all screen sizes
-- 🔄 **Interactive Components**: Lottie animations, an experience timeline, skill badges, and a contact form
-- 🚀 **Fast Performance**: Optimized loading and rendering
-- 🐳 **Docker Ready**: Self-contained image for deployment, plus a Compose setup for live editing
-- 📊 **Data-Driven**: Separated data from presentation logic
-- 🎯 **Section Navigation**: Sidebar menu for easy browsing
+- **Modern Design**: Professional dark theme with gradient accents
+- **Responsive Layout**: Optimized for all screen sizes
+- **Interactive Components**: Lottie animations, an experience timeline, skill badges, and a contact form
+- **Fast Performance**: Optimized loading and rendering
+- **Docker Ready**: Self-contained image for deployment, plus a Compose setup for live editing
+- **Data-Driven**: Separated data from presentation logic
+- **Section Navigation**: Sidebar menu for easy browsing
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 streamlit-portfolio-template/
@@ -39,7 +39,7 @@ streamlit-portfolio-template/
 └── requirements.txt       # Python dependencies
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Local Development (without Docker)
 
@@ -86,7 +86,7 @@ docker run -p 8501:8501 portfolio:latest
 - Access at: `http://localhost:8501`
 - Rebuild the image after changing code or content
 
-## 🎨 Customization
+## Customization
 
 ### Update Personal Information
 
@@ -122,7 +122,7 @@ Update the respective sections in `core/data.py`:
 - `EDUCATION`
 - `CERTIFICATIONS`
 
-## 📦 Docker Commands
+## Docker Commands
 
 ```bash
 # Start with live editing (http://localhost:8081)
@@ -140,7 +140,7 @@ docker build -t portfolio:latest .
 docker run -p 8501:8501 portfolio:latest
 ```
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Frontend Framework**: Streamlit 1.51.0
 - **Programming Language**: Python 3.12
@@ -149,7 +149,7 @@ docker run -p 8501:8501 portfolio:latest
 - **Navigation**: streamlit-option-menu
 - **Containerization**: Docker & Docker Compose
 
-## 📝 Development Workflow
+## Development Workflow
 
 1. **Start** the app with `docker compose up --build` (or `streamlit run app.py`)
 2. **Make changes** to any `.py` file or to `core/data.py`
@@ -157,7 +157,7 @@ docker run -p 8501:8501 portfolio:latest
 4. **Test** at `http://localhost:8081` (Compose) or `http://localhost:8501` (local)
 5. **Deploy** the standalone image built from the `Dockerfile`
 
-## 🌐 Deployment
+## Deployment
 
 ### Deploy to Cloud Platform
 
@@ -180,15 +180,15 @@ git push heroku main
 - Use the standalone Docker image (`docker build -t portfolio:latest .`)
 - Deploy to container services (ECS, Cloud Run, etc.)
 
-## 📄 License
+## License
 
 This project is open source and available under the MIT License.
 
-## 🤝 Contributing
+## Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-## ✏️ Make It Yours
+## Make It Yours
 
 1. Replace the placeholder content in `core/data.py` with your own details.
 2. Update the intro text in `core/enums.py` (`InfoSection`).
@@ -197,4 +197,4 @@ Contributions, issues, and feature requests are welcome!
 
 ---
 
-**Built with ❤️ using Streamlit**
+**Built with Streamlit**
